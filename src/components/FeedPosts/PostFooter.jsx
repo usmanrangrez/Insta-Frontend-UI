@@ -4,7 +4,6 @@ import {
   Flex,
   Input,
   InputGroup,
-  InputLeftElement,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
@@ -15,7 +14,7 @@ import {
   UnlikeLogo,
 } from "../../assests/constants";
 
-const PostFooter = () => {
+const PostFooter = ({ username }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(17);
 
@@ -29,7 +28,7 @@ const PostFooter = () => {
     }
   };
   return (
-    <>
+    <Box mb={10}>
       <Flex alignItems={"center"} gap={4} w={"full"} pt={0} mb={2} mt={4}>
         <Box onClick={handleLike} cursor={"pointer"} fontSize={18}>
           {!isLiked ? <NotificationsLogo /> : <UnlikeLogo />}
@@ -42,12 +41,12 @@ const PostFooter = () => {
         {likes} likes
       </Text>
       <Text fontSize={"sm"} fontWeight={700}>
-        usmaanrangrez{" "}
+        {username}{" "}
         <Text as={"span"} fontWeight={400}>
           Feeling good
         </Text>
       </Text>
-      <Text fontSize={"sm"} color={"gray"}>
+      <Text cursor={"pointer"} fontSize={"sm"} color={"gray"}>
         View all 72 comments
       </Text>
       <Flex
@@ -78,7 +77,7 @@ const PostFooter = () => {
           </InputRightElement>
         </InputGroup>
       </Flex>
-    </>
+    </Box>
   );
 };
 
