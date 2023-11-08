@@ -31,6 +31,7 @@ const AuthForm = () => {
       (!inputs.email || !inputs.password || !inputs.confirmPassword)
     ) {
       alert("Please fill all the fields");
+
       return;
     }
 
